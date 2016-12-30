@@ -18,9 +18,14 @@ class NoteTableViewCell: UITableViewCell{
 }
 
 class MasterTableViewController: UITableViewController {
+    
+    var notes: [String] = []
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "Notes"
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -28,6 +33,51 @@ class MasterTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    
+    @IBAction func addNote(_ sender: UIBarButtonItem) {
+ 
+        let alert = UIAlertController(title: "New note",
+                                      message: "Add a new note",
+                                      preferredStyle: .alert)
+        
+        let saveAction = UIAlertAction(title: "Save",
+                                       style: .default) {
+                                        [unowned self] action in
+                                        
+                                        
+                                        guard let textField = alert.textFields?.first,
+                                            let noteTitle = textField.text else {
+                                                return
+                                        }
+                                        
+                                        self.notes.append(noteTitle)
+                                        self.tableView.reloadData()
+ 
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel",
+                                         style: .default)
+     
+      
+        
+        alert.addTextField { (textField : UITextField!) -> Void in
+            textField.placeholder = "Enter note title"
+        }
+        //alert.addTextField { (textField : UITextField!) -> Void in
+        //    textField.placeholder = "Enter note text"
+        //}
+        
+     
+        alert.addAction(saveAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true)
+ 
+ 
+
+        
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -43,14 +93,15 @@ class MasterTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 10
+        return notes.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NoteCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NoteCell", for: indexPath) as! NoteTableViewCell
 
         // Configure the cell...
+        cell.noteTitle.text = notes[indexPath.row]
 
         return cell
     }
