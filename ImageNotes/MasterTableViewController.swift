@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class NoteTableViewCell: UITableViewCell{
     
@@ -19,7 +20,8 @@ class NoteTableViewCell: UITableViewCell{
 
 class MasterTableViewController: UITableViewController {
     
-    var notes: [String] = []
+    var notes: [Note] = []
+    var managedContext: NSManagedObjectContext?
     
 
     override func viewDidLoad() {
@@ -32,6 +34,27 @@ class MasterTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        guard let appDelegate =
+            UIApplication.shared.delegate as? AppDelegate else {
+                return
+        }
+        
+        managedContext =
+            appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest =
+            NSFetchRequest<Note>(entityName: "Note")
+        
+        do {
+            notes = try managedContext!.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
     }
     
     @IBAction func addNote(_ sender: UIBarButtonItem) {
@@ -50,7 +73,12 @@ class MasterTableViewController: UITableViewController {
                                                 return
                                         }
                                         
-                                        self.notes.append(noteTitle)
+                                        let currentDate = Date()
+                                        let formatter = DateFormatter()
+                                        formatter.dateFormat = "dd.MM.yy"
+                                        let dateString = formatter.string(from: currentDate)
+                                        
+                                        self.save(title: noteTitle, date:dateString)
                                         self.tableView.reloadData()
  
         }
@@ -72,10 +100,33 @@ class MasterTableViewController: UITableViewController {
         alert.addAction(cancelAction)
         
         present(alert, animated: true)
- 
- 
-
+    }
+    
+    func save(title: String, date: String) {
         
+        guard let appDelegate =
+            UIApplication.shared.delegate as? AppDelegate else {
+                return
+        }
+        
+        let entity =
+            NSEntityDescription.entity(forEntityName: "Note",
+                                       in: managedContext!)!
+        
+        let note = Note(entity: entity,
+                            insertInto: managedContext)
+        
+        note.title = title
+        note.text = ""
+        note.date = date
+        note.image = nil
+        
+        do {
+            try managedContext?.save()
+            notes.append(note)
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
     }
     
 
@@ -101,7 +152,8 @@ class MasterTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NoteCell", for: indexPath) as! NoteTableViewCell
 
         // Configure the cell...
-        cell.noteTitle.text = notes[indexPath.row]
+        cell.noteTitle.text = notes[indexPath.row].title
+        cell.noteDate.text = notes[indexPath.row].date
 
         return cell
     }

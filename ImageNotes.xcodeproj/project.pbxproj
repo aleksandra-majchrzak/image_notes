@@ -15,6 +15,8 @@
 		27FAD6A31E15DBA800CB9439 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27FAD6A11E15DBA800CB9439 /* LaunchScreen.storyboard */; };
 		27FAD6AB1E16615E00CB9439 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FAD6AA1E16615E00CB9439 /* NoteViewController.swift */; };
 		27FAD6AD1E1662AD00CB9439 /* MasterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FAD6AC1E1662AD00CB9439 /* MasterTableViewController.swift */; };
+		27FAD6BE1E16F90500CB9439 /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FAD6BC1E16F90500CB9439 /* Note+CoreDataClass.swift */; };
+		27FAD6BF1E16F90500CB9439 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FAD6BD1E16F90500CB9439 /* Note+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		27FAD6A41E15DBA800CB9439 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27FAD6AA1E16615E00CB9439 /* NoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		27FAD6AC1E1662AD00CB9439 /* MasterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterTableViewController.swift; sourceTree = "<group>"; };
+		27FAD6BC1E16F90500CB9439 /* Note+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataClass.swift"; sourceTree = "<group>"; };
+		27FAD6BD1E16F90500CB9439 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 		27FAD6941E15DBA800CB9439 /* ImageNotes */ = {
 			isa = PBXGroup;
 			children = (
+				27FAD6BC1E16F90500CB9439 /* Note+CoreDataClass.swift */,
+				27FAD6BD1E16F90500CB9439 /* Note+CoreDataProperties.swift */,
 				27FAD6951E15DBA800CB9439 /* AppDelegate.swift */,
 				27FAD6971E15DBA800CB9439 /* ViewController.swift */,
 				27FAD6AA1E16615E00CB9439 /* NoteViewController.swift */,
@@ -146,8 +152,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				27FAD6AB1E16615E00CB9439 /* NoteViewController.swift in Sources */,
+				27FAD6BF1E16F90500CB9439 /* Note+CoreDataProperties.swift in Sources */,
 				27FAD6981E15DBA800CB9439 /* ViewController.swift in Sources */,
 				27FAD6961E15DBA800CB9439 /* AppDelegate.swift in Sources */,
+				27FAD6BE1E16F90500CB9439 /* Note+CoreDataClass.swift in Sources */,
 				27FAD6AD1E1662AD00CB9439 /* MasterTableViewController.swift in Sources */,
 				27FAD69E1E15DBA800CB9439 /* ImageNotes.xcdatamodeld in Sources */,
 			);
