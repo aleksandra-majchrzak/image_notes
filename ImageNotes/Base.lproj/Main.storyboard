@@ -29,7 +29,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="&lt;note text&gt;" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5EA-py-56B">
-                                <rect key="frame" x="20" y="134" width="374" height="394"/>
+                                <rect key="frame" x="20" y="142" width="374" height="386"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -37,21 +37,36 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mci-Re-0fX">
                                 <rect key="frame" x="87" y="588" width="240" height="128"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;date text&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2x3-2T-RRE">
+                                <rect key="frame" x="20" y="97" width="374" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="leadingMargin" secondItem="5EA-py-56B" secondAttribute="leading" id="1ZL-Ur-5ab"/>
                             <constraint firstItem="UOM-8U-9Wv" firstAttribute="top" secondItem="irn-Nw-MWZ" secondAttribute="bottom" constant="23" id="2Mj-54-haR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2x3-2T-RRE" secondAttribute="trailing" id="3vJ-Py-qkT"/>
                             <constraint firstItem="Mci-Re-0fX" firstAttribute="leading" secondItem="Wdn-nP-Pgj" secondAttribute="leadingMargin" constant="67" id="4lo-2q-VeF"/>
-                            <constraint firstItem="5EA-py-56B" firstAttribute="top" secondItem="UOM-8U-9Wv" secondAttribute="bottom" constant="61" id="EaD-Ga-kTt"/>
                             <constraint firstAttribute="leadingMargin" secondItem="UOM-8U-9Wv" secondAttribute="leading" id="Ixj-qL-Wce"/>
                             <constraint firstItem="Vmx-RH-wF9" firstAttribute="top" secondItem="Mci-Re-0fX" secondAttribute="bottom" constant="20" id="RZi-eX-K2X"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5EA-py-56B" secondAttribute="trailing" id="Tm5-WQ-U5Q"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="2x3-2T-RRE" secondAttribute="leading" id="Zc4-Tg-7OV"/>
+                            <constraint firstItem="2x3-2T-RRE" firstAttribute="top" secondItem="UOM-8U-9Wv" secondAttribute="bottom" constant="24" id="guf-aT-IjW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Mci-Re-0fX" secondAttribute="trailing" constant="67" id="j9r-Qt-Srs"/>
                             <constraint firstItem="Mci-Re-0fX" firstAttribute="top" secondItem="5EA-py-56B" secondAttribute="bottom" constant="60" id="jra-jp-7DM"/>
+                            <constraint firstItem="5EA-py-56B" firstAttribute="top" secondItem="2x3-2T-RRE" secondAttribute="bottom" constant="22" id="lfu-xi-bfK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="UOM-8U-9Wv" secondAttribute="trailing" id="wxF-kH-J6n"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dateLabel" destination="2x3-2T-RRE" id="z7i-ts-sY8"/>
+                        <outlet property="image" destination="Mci-Re-0fX" id="dIb-Uw-3RG"/>
+                        <outlet property="textLabel" destination="5EA-py-56B" id="74D-DZ-Vb0"/>
+                        <outlet property="titleLabel" destination="UOM-8U-9Wv" id="rhv-JG-xOM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aPZ-yu-gtu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -70,7 +85,7 @@
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o9r-gF-25L" id="JkG-Ad-9FN">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;note title&gt;" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Lj-av-Lis">

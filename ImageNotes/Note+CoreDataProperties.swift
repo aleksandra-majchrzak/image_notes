@@ -8,7 +8,7 @@
 
 import Foundation
 import CoreData
-
+import UIKit
 
 extension Note {
 
@@ -20,5 +20,12 @@ extension Note {
     @NSManaged public var text: String?
     @NSManaged public var date: String?
     @NSManaged public var image: NSData?
+    
+    func getImage() -> UIImage{
+        if image != nil {
+            return UIImage(data: image! as Data)!
+        }
+        return UIImage()
+    }
 
 }

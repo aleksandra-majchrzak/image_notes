@@ -18,10 +18,15 @@ class NoteTableViewCell: UITableViewCell{
     
 }
 
+protocol NoteSelectionDelegate: class{
+    func noteSelected(newNote: Note)
+}
+
 class MasterTableViewController: UITableViewController {
     
     var notes: [Note] = []
     var managedContext: NSManagedObjectContext?
+    weak var delegate: NoteSelectionDelegate?
     
 
     override func viewDidLoad() {
@@ -158,6 +163,14 @@ class MasterTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedNote = self.notes[indexPath.row]
+        self.delegate?.noteSelected(newNote: selectedNote)
+        
+        if let noteViewController = self.delegate as? NoteViewController {
+            splitViewController?.showDetailViewController(noteViewController, sender: nil)
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.
