@@ -116,25 +116,43 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UINavigation
         
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
-        if (UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)){
-            imagePickerController.sourceType = UIImagePickerControllerSourceType.camera
-            imagePickerController.mediaTypes = [kUTTypeImage as String]
-            imagePickerController.isEditing = false
-        }else{
-            imagePickerController.sourceType = UIImagePickerControllerSourceType.photoLibrary
-        }
+        
+        imagePickerController.sourceType = UIImagePickerControllerSourceType.photoLibrary
         
         self.present(imagePickerController, animated: true, completion: nil)
-
-        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let selectedImage: UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         noteImageView.image = selectedImage
-        // self.note?.image = selectedImage
         super.dismiss(animated: true , completion: nil)
     }
+    
+    @IBAction func takeAPhoto(_ sender: UIBarButtonItem) {
+        
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        
+        if (UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)){
+            imagePickerController.sourceType = UIImagePickerControllerSourceType.camera
+            imagePickerController.mediaTypes = [kUTTypeImage as String]
+            imagePickerController.isEditing = false
+            
+            self.present(imagePickerController, animated: true, completion: nil)
+            
+        }else{
+            let alert = UIAlertController(title: "Take photo",
+                                          message: "Camera not available",
+                                          preferredStyle: .alert)
+            
+            let okAction = UIAlertAction(title: "ok",
+                                          style: .default)
+            alert.addAction(okAction)
+            
+            present(alert, animated: true)
+        }
+    }
+    
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         super.dismiss(animated: true,completion:nil)

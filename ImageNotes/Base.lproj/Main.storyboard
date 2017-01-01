@@ -140,6 +140,12 @@
                                             <action selector="chooseImage:" destination="uY4-6K-mfh" id="qlY-3D-i7G"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem systemItem="flexibleSpace" id="AAx-B8-vpZ"/>
+                                    <barButtonItem title="Take a photo" id="Aou-TG-5Ky">
+                                        <connections>
+                                            <action selector="takeAPhoto:" destination="uY4-6K-mfh" id="aOQ-3f-b9t"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="0aj-6T-A1m"/>
                                     <barButtonItem systemItem="cancel" id="Bzf-Cg-Dey">
                                         <connections>
