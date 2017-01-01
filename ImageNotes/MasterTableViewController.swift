@@ -22,7 +22,7 @@ protocol NoteSelectionDelegate: class{
     func noteSelected(newNote: Note)
 }
 
-class MasterTableViewController: UITableViewController, AddNoteViewControllerDelegate {
+class MasterTableViewController: UITableViewController, AddNoteViewControllerDelegate, NoteChangedDelegate {
     
     var notes: [Note] = []
     var managedContext: NSManagedObjectContext?
@@ -139,6 +139,25 @@ class MasterTableViewController: UITableViewController, AddNoteViewControllerDel
             print("Could not save. \(error), \(error.userInfo)")
         }
         
+    }
+    
+    func noteChanged(editedNote: Note){
+        
+        do {
+            try managedContext?.save()
+            self.tableView.reloadData()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+        
+    }
+    
+    func deleteNote(noteToDelete: Note) {
+
+        // usuwanie zmienia kolejnosc na liscie?
+        managedContext?.delete(noteToDelete)
+        notes.remove(at: notes.index(of: noteToDelete)!)
+        self.tableView.reloadData()
     }
     
 

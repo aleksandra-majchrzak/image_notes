@@ -11,6 +11,7 @@ import UIKit
 class AddNoteViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate,UIImagePickerControllerDelegate{
 
     var delegate:AddNoteViewControllerDelegate!
+    var editDelegate: EditNoteControllerDelegate!
     
     @IBOutlet weak var noteTitleTextField: UITextField!
     
@@ -20,7 +21,9 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UINavigation
     
     @IBOutlet weak var noteImageView: UIImageView!
     
-    var noteTitle : String?
+    var noteTitle: String?
+    
+    var note: Note?
     
     
     override func viewDidLoad() {
@@ -32,14 +35,23 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UINavigation
         noteTextTextView.layer.borderWidth = 0.5
         noteTextTextView.layer.cornerRadius = 5.0
         
-        noteTitleTextField?.text = noteTitle
         
-        let currentDate = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd.MM.yy"
-        let dateString = formatter.string(from: currentDate)
+        if note == nil {
+            noteTitleTextField?.text = noteTitle
         
-        noteDateLabel?.text = dateString
+            let currentDate = Date()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd.MM.yy"
+            let dateString = formatter.string(from: currentDate)
+        
+            noteDateLabel?.text = dateString
+        }
+        else {
+            noteTitleTextField.text = note?.title
+            noteDateLabel.text = note?.date
+            noteTextTextView.text = note?.text
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,21 +72,41 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UINavigation
     
     @IBAction func saveNote(_ sender: UIBarButtonItem) {
         
-        let title = noteTitleTextField.text
-        let text = noteTextTextView.text
-        let image = noteImageView.image
-        let date = noteDateLabel.text
+        if note == nil {
+            let title = noteTitleTextField.text
+            let text = noteTextTextView.text
+            let image = noteImageView.image
+            let date = noteDateLabel.text
         
-        var imageData : Data?
+            var imageData : Data?
             
-        if image != nil{
-            imageData = UIImagePNGRepresentation(image!)
-        }
-        else{
-            imageData = nil
-        }
+            if image != nil{
+                imageData = UIImagePNGRepresentation(image!)
+            }
+            else{
+                imageData = nil
+            }
 
-        delegate.savePressedInAddNote(title: title!, date: date!, text: text!, image: imageData as NSData?)
+            delegate.savePressedInAddNote(title: title!, date: date!, text: text!, image: imageData as NSData?)
+        }
+        else {
+            
+            note?.title = noteTitleTextField.text
+            note?.date = noteDateLabel.text
+            note?.text = noteTextTextView.text
+            
+            let image = noteImageView.image
+            
+            if image != nil{
+                note?.image = UIImagePNGRepresentation(image!) as NSData?
+            }
+            else{
+                note?.image = nil
+            }
+            
+            editDelegate.saveEditedNote(note: note!)
+        }
+        
         super.dismiss(animated: true,completion:nil)
     }
     
@@ -88,4 +120,8 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UINavigation
 
 protocol AddNoteViewControllerDelegate{
     func savePressedInAddNote(title: String, date: String, text: String, image: NSData?)
+}
+
+protocol EditNoteControllerDelegate{
+    func saveEditedNote(note: Note)
 }

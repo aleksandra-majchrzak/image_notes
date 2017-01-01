@@ -43,7 +43,17 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fVK-cO-G1D">
                                 <rect key="frame" x="0.0" y="692" width="414" height="44"/>
                                 <items>
-                                    <barButtonItem systemItem="edit" id="H1Q-dw-w0a"/>
+                                    <barButtonItem systemItem="edit" id="H1Q-dw-w0a">
+                                        <connections>
+                                            <action selector="editNote:" destination="MvA-RD-AzW" id="fS7-Gu-x37"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="flexibleSpace" id="8Z6-Se-kZG"/>
+                                    <barButtonItem systemItem="trash" id="ZvE-uy-4US">
+                                        <connections>
+                                            <action selector="deleteNote:" destination="MvA-RD-AzW" id="XFU-lq-ELP"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iFE-lO-z64">

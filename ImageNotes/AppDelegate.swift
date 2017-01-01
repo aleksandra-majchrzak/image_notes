@@ -28,6 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             detailViewController.note = firstNote
         }
         masterViewController.delegate = detailViewController
+        detailViewController.delegate = masterViewController
         
         return true
     }
