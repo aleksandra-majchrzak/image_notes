@@ -22,7 +22,7 @@ protocol NoteSelectionDelegate: class{
     func noteSelected(newNote: Note)
 }
 
-class MasterTableViewController: UITableViewController {
+class MasterTableViewController: UITableViewController, AddNoteViewControllerDelegate {
     
     var notes: [Note] = []
     var managedContext: NSManagedObjectContext?
@@ -68,7 +68,7 @@ class MasterTableViewController: UITableViewController {
                                       message: "Add a new note",
                                       preferredStyle: .alert)
         
-        let saveAction = UIAlertAction(title: "Save",
+        let createAction = UIAlertAction(title: "Create",
                                        style: .default) {
                                         [unowned self] action in
                                         
@@ -78,13 +78,9 @@ class MasterTableViewController: UITableViewController {
                                                 return
                                         }
                                         
-                                        let currentDate = Date()
-                                        let formatter = DateFormatter()
-                                        formatter.dateFormat = "dd.MM.yy"
-                                        let dateString = formatter.string(from: currentDate)
+                                        self.openAddNoteController(noteTitle: noteTitle)
                                         
-                                        self.save(title: noteTitle, date:dateString)
-                                        self.tableView.reloadData()
+                                        
  
         }
         
@@ -101,13 +97,22 @@ class MasterTableViewController: UITableViewController {
         //}
         
      
-        alert.addAction(saveAction)
+        alert.addAction(createAction)
         alert.addAction(cancelAction)
         
         present(alert, animated: true)
     }
     
-    func save(title: String, date: String) {
+    func openAddNoteController(noteTitle: String){
+        let vc: AddNoteViewController  = self.storyboard?.instantiateViewController(withIdentifier: "addNoteId") as! AddNoteViewController
+        vc.delegate = self
+        vc.noteTitle = noteTitle
+        vc.modalTransitionStyle =  UIModalTransitionStyle.flipHorizontal
+        self.present(vc, animated: true, completion: nil)
+        
+    }
+    
+    func savePressedInAddNote(title: String, date: String, text: String, image: NSData?){
         
         guard let appDelegate =
             UIApplication.shared.delegate as? AppDelegate else {
@@ -122,16 +127,18 @@ class MasterTableViewController: UITableViewController {
                             insertInto: managedContext)
         
         note.title = title
-        note.text = ""
+        note.text = text
         note.date = date
-        note.image = nil
+        note.image = image
         
         do {
             try managedContext?.save()
             notes.append(note)
+            self.tableView.reloadData()
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
+        
     }
     
 

@@ -14,7 +14,7 @@ class NoteViewController: UIViewController {
     
     @IBOutlet weak var dateLabel: UILabel!
     
-    @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet weak var textTextView: UITextView!
     
     @IBOutlet weak var image: UIImageView!
     
@@ -41,8 +41,8 @@ class NoteViewController: UIViewController {
     
     func refreshUI() {
         titleLabel?.text = note.title
-        dateLabel?.text = note.text
-        textLabel?.text = note.date
+        dateLabel?.text = note.date
+        textTextView?.text = note.text
         
         if note.image != nil{
             image?.image = note.getImage()

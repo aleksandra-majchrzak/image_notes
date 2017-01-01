@@ -17,6 +17,8 @@
 		27FAD6AD1E1662AD00CB9439 /* MasterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FAD6AC1E1662AD00CB9439 /* MasterTableViewController.swift */; };
 		27FAD6BE1E16F90500CB9439 /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FAD6BC1E16F90500CB9439 /* Note+CoreDataClass.swift */; };
 		27FAD6BF1E16F90500CB9439 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FAD6BD1E16F90500CB9439 /* Note+CoreDataProperties.swift */; };
+		27FAD6C11E171E4B00CB9439 /* NotesSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FAD6C01E171E4B00CB9439 /* NotesSplitViewController.swift */; };
+		27FD79EA1E19299300D94F7B /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FD79E91E19299300D94F7B /* AddNoteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		27FAD6AC1E1662AD00CB9439 /* MasterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterTableViewController.swift; sourceTree = "<group>"; };
 		27FAD6BC1E16F90500CB9439 /* Note+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataClass.swift"; sourceTree = "<group>"; };
 		27FAD6BD1E16F90500CB9439 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		27FAD6C01E171E4B00CB9439 /* NotesSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesSplitViewController.swift; sourceTree = "<group>"; };
+		27FD79E91E19299300D94F7B /* AddNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +72,9 @@
 				27FAD6BD1E16F90500CB9439 /* Note+CoreDataProperties.swift */,
 				27FAD6951E15DBA800CB9439 /* AppDelegate.swift */,
 				27FAD6971E15DBA800CB9439 /* ViewController.swift */,
+				27FAD6C01E171E4B00CB9439 /* NotesSplitViewController.swift */,
 				27FAD6AA1E16615E00CB9439 /* NoteViewController.swift */,
+				27FD79E91E19299300D94F7B /* AddNoteViewController.swift */,
 				27FAD6AC1E1662AD00CB9439 /* MasterTableViewController.swift */,
 				27FAD6991E15DBA800CB9439 /* Main.storyboard */,
 				27FAD69F1E15DBA800CB9439 /* Assets.xcassets */,
@@ -153,9 +159,11 @@
 			files = (
 				27FAD6AB1E16615E00CB9439 /* NoteViewController.swift in Sources */,
 				27FAD6BF1E16F90500CB9439 /* Note+CoreDataProperties.swift in Sources */,
+				27FD79EA1E19299300D94F7B /* AddNoteViewController.swift in Sources */,
 				27FAD6981E15DBA800CB9439 /* ViewController.swift in Sources */,
 				27FAD6961E15DBA800CB9439 /* AppDelegate.swift in Sources */,
 				27FAD6BE1E16F90500CB9439 /* Note+CoreDataClass.swift in Sources */,
+				27FAD6C11E171E4B00CB9439 /* NotesSplitViewController.swift in Sources */,
 				27FAD6AD1E1662AD00CB9439 /* MasterTableViewController.swift in Sources */,
 				27FAD69E1E15DBA800CB9439 /* ImageNotes.xcdatamodeld in Sources */,
 			);
@@ -319,6 +327,7 @@
 				27FAD6A91E15DBA800CB9439 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
