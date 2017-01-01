@@ -54,6 +54,10 @@ class NoteViewController: UIViewController {
         if note.image != nil{
             image?.image = note.getImage()
         }
+        else {
+            image?.image = nil
+        }
+        
     }
     
     @IBAction func editNote(_ sender: Any) {

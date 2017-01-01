@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MobileCoreServices
 
 class AddNoteViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate,UIImagePickerControllerDelegate{
 
@@ -50,6 +51,7 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UINavigation
             noteTitleTextField.text = note?.title
             noteDateLabel.text = note?.date
             noteTextTextView.text = note?.text
+            noteImageView.image = note?.getImage()
         }
         
     }
@@ -110,6 +112,29 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UINavigation
         super.dismiss(animated: true,completion:nil)
     }
     
+    @IBAction func chooseImage(_ sender: UIBarButtonItem) {
+        
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        if (UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)){
+            imagePickerController.sourceType = UIImagePickerControllerSourceType.camera
+            imagePickerController.mediaTypes = [kUTTypeImage as String]
+            imagePickerController.isEditing = false
+        }else{
+            imagePickerController.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        }
+        
+        self.present(imagePickerController, animated: true, completion: nil)
+
+        
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let selectedImage: UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        noteImageView.image = selectedImage
+        // self.note?.image = selectedImage
+        super.dismiss(animated: true , completion: nil)
+    }
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         super.dismiss(animated: true,completion:nil)

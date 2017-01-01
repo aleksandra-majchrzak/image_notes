@@ -28,7 +28,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mci-Re-0fX">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mci-Re-0fX">
                                 <rect key="frame" x="62" y="498" width="290" height="160"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="XRS-kv-ENS"/>
@@ -114,7 +114,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zqz-UU-MeE">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zqz-UU-MeE">
                                 <rect key="frame" x="62" y="498" width="290" height="160"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="rQh-da-oRq"/>
@@ -135,7 +135,11 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="lI9-ud-J1P"/>
-                                    <barButtonItem title="Choose image" id="A67-AY-H35"/>
+                                    <barButtonItem title="Choose image" id="A67-AY-H35">
+                                        <connections>
+                                            <action selector="chooseImage:" destination="uY4-6K-mfh" id="qlY-3D-i7G"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="0aj-6T-A1m"/>
                                     <barButtonItem systemItem="cancel" id="Bzf-Cg-Dey">
                                         <connections>
