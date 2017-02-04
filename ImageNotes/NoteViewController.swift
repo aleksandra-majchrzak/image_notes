@@ -75,11 +75,11 @@ class NoteViewController: UIViewController {
     @IBAction func deleteNote(_ sender: Any) {
         if note != nil{
             
-            let alert = UIAlertController(title: "Delete note",
-                                          message: "Are you sure to delete this note?",
+            let alert = UIAlertController(title: NSLocalizedString("Delete_note", comment: "") ,
+                                          message: NSLocalizedString("Are_you_sure_to_delete_this_note", comment:""),
                                           preferredStyle: .alert)
             
-            let yesAction = UIAlertAction(title: "Yes",
+            let yesAction = UIAlertAction(title: NSLocalizedString("Yes", comment: ""),
                                              style: .default) {
                                                 
                                                 [unowned self] action in
@@ -89,7 +89,7 @@ class NoteViewController: UIViewController {
                                                 
             }
             
-            let noAction = UIAlertAction(title: "No",
+            let noAction = UIAlertAction(title: NSLocalizedString("No", comment: ""),
                                          style: .default)
 
             alert.addAction(yesAction)

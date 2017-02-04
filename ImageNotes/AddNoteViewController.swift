@@ -141,11 +141,11 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UINavigation
             self.present(imagePickerController, animated: true, completion: nil)
             
         }else{
-            let alert = UIAlertController(title: "Take photo",
-                                          message: "Camera not available",
+            let alert = UIAlertController(title: NSLocalizedString("Take_photo", comment: ""),
+                                          message: NSLocalizedString("Camera_not_available", comment: ""),
                                           preferredStyle: .alert)
             
-            let okAction = UIAlertAction(title: "ok",
+            let okAction = UIAlertAction(title: NSLocalizedString("ok", comment: ""),
                                           style: .default)
             alert.addAction(okAction)
             

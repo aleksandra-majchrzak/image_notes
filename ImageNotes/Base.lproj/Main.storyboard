@@ -190,10 +190,10 @@
                             <mask key="constraints">
                                 <exclude reference="mgQ-Zg-Yw1"/>
                                 <exclude reference="XqY-1r-Fkp"/>
-                                <exclude reference="9IT-dw-XFg"/>
-                                <exclude reference="pXy-bX-NMF"/>
                                 <exclude reference="0uV-kE-vAH"/>
                                 <exclude reference="zOD-Ho-g47"/>
+                                <exclude reference="9IT-dw-XFg"/>
+                                <exclude reference="pXy-bX-NMF"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=regular">
@@ -202,14 +202,14 @@
                                 <include reference="mgQ-Zg-Yw1"/>
                                 <include reference="XqY-1r-Fkp"/>
                                 <exclude reference="zdh-kq-R95"/>
-                                <include reference="9IT-dw-XFg"/>
-                                <exclude reference="Gii-92-19I"/>
-                                <include reference="pXy-bX-NMF"/>
                                 <include reference="0uV-kE-vAH"/>
                                 <exclude reference="2ko-ft-YJa"/>
                                 <exclude reference="T1i-83-Nng"/>
                                 <exclude reference="lt9-15-2c4"/>
                                 <include reference="zOD-Ho-g47"/>
+                                <include reference="9IT-dw-XFg"/>
+                                <exclude reference="Gii-92-19I"/>
+                                <include reference="pXy-bX-NMF"/>
                             </mask>
                         </variation>
                     </view>
@@ -237,7 +237,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o9r-gF-25L" id="JkG-Ad-9FN">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;note title&gt;" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Lj-av-Lis">

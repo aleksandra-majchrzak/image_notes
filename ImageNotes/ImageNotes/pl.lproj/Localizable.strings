@@ -1,0 +1,22 @@
+/*
+  Localizable.strings
+  ImageNotes
+
+  Created by Mohru on 1/1/17.
+  Copyright © 2017 Mohru. All rights reserved.
+*/
+
+"Notes" = "Notatki";
+"Note_title" = "Nazwa notatki";
+"New_note" = "Nowa notatka";
+"Add_a_new_note" = "Dodaj nowę notatkę";
+"Create" = "Utwórz";
+"Cancel" = "Anuluj";
+"Enter_note_title" = "Wpisz nazwę notatki";
+"Take_photo" = "Zrób zdjęcie";
+"Camera_not_available" = "Aparat jest niedostępny";
+"ok" = "ok";
+"Delete_note" = "Usuń notatkę";
+"Are_you_sure_to_delete_this_note" = "Czy chcesz usunąć notatkę?";
+"Yes" = "Tak";
+"No" = "Nie";

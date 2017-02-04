@@ -32,7 +32,7 @@ class MasterTableViewController: UITableViewController, AddNoteViewControllerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Notes"
+        title = NSLocalizedString("Notes", comment: "")
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -64,11 +64,11 @@ class MasterTableViewController: UITableViewController, AddNoteViewControllerDel
     
     @IBAction func addNote(_ sender: UIBarButtonItem) {
  
-        let alert = UIAlertController(title: "New note",
-                                      message: "Add a new note",
+        let alert = UIAlertController(title: NSLocalizedString("New_note", comment: ""),
+                                      message: NSLocalizedString("Add_a_new_note", comment: ""),
                                       preferredStyle: .alert)
         
-        let createAction = UIAlertAction(title: "Create",
+        let createAction = UIAlertAction(title: NSLocalizedString("Create", comment: ""),
                                        style: .default) {
                                         [unowned self] action in
                                         
@@ -84,13 +84,13 @@ class MasterTableViewController: UITableViewController, AddNoteViewControllerDel
  
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel",
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""),
                                          style: .default)
      
       
         
         alert.addTextField { (textField : UITextField!) -> Void in
-            textField.placeholder = "Enter note title"
+            textField.placeholder = NSLocalizedString("Enter_note_title", comment: "")
         }
         //alert.addTextField { (textField : UITextField!) -> Void in
         //    textField.placeholder = "Enter note text"
@@ -114,8 +114,7 @@ class MasterTableViewController: UITableViewController, AddNoteViewControllerDel
     
     func savePressedInAddNote(title: String, date: String, text: String, image: NSData?){
         
-        guard let appDelegate =
-            UIApplication.shared.delegate as? AppDelegate else {
+        guard (UIApplication.shared.delegate as? AppDelegate) != nil else {
                 return
         }
         

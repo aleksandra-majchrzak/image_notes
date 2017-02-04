@@ -1,0 +1,27 @@
+
+/* Class = "UILabel"; text = " "; ObjectID = "2x3-2T-RRE"; */
+"2x3-2T-RRE.text" = " ";
+
+/* Class = "UILabel"; text = "<note title>"; ObjectID = "6Lj-av-Lis"; */
+"6Lj-av-Lis.text" = "<note title>";
+
+/* Class = "UIBarButtonItem"; title = "Choose image"; ObjectID = "A67-AY-H35"; */
+"A67-AY-H35.title" = "Wybierz obraz";
+
+/* Class = "UIBarButtonItem"; title = "Take a photo"; ObjectID = "Aou-TG-5Ky"; */
+"Aou-TG-5Ky.title" = "Zrob zdjecie";
+
+/* Class = "UILabel"; text = "<date text>"; ObjectID = "Nap-me-Opn"; */
+"Nap-me-Opn.text" = "<date text>";
+
+/* Class = "UINavigationItem"; title = "Root View Controller"; ObjectID = "QjQ-MU-dP2"; */
+"QjQ-MU-dP2.title" = "Root View Controller";
+
+/* Class = "UILabel"; text = " "; ObjectID = "UOM-8U-9Wv"; */
+"UOM-8U-9Wv.text" = " ";
+
+/* Class = "UILabel"; text = "<note date>"; ObjectID = "dZK-Uo-7af"; */
+"dZK-Uo-7af.text" = "<note date>";
+
+/* Class = "UITextField"; accessibilityHint = "Note title"; ObjectID = "dbD-hy-RyE"; */
+"dbD-hy-RyE.accessibilityHint" = "Nazwa notatki";

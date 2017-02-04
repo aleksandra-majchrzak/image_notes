@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  ImageNotes
+
+  Created by Mohru on 1/1/17.
+  Copyright © 2017 Mohru. All rights reserved.
+*/
+
+"Notes" = "Notes";
+"Note_title" = "Note title";
+"New_note" = "New note";
+"Add_a_new_note" = "Add a new note";
+"Create" = "Create";
+"Cancel" = "Cancel";
+"Enter_note_title" = "Enter note title";
+"Take_photo" = "Take photo";
+"Camera_not_available" = "Camera not available";
+"ok" = "ok";
+"Delete_note" = "Delete note";
+"Are_you_sure_to_delete_this_note" = "Are you sure to delete this note?";
+"Yes" = "Yes";
+"No" = "No";
