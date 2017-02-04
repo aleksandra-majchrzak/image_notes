@@ -47,15 +47,28 @@ class NoteViewController: UIViewController {
     }
     
     func refreshUI() {
-        titleLabel?.text = note.title
-        dateLabel?.text = note.date
-        textTextView?.text = note.text
+        if note != nil{
+            titleLabel.isHidden = false
+            dateLabel.isHidden = false
+            textTextView.isHidden = false
+            image.isHidden = false
+
+            titleLabel?.text = note.title
+            dateLabel?.text = note.date
+            textTextView?.text = note.text
         
-        if note.image != nil{
-            image?.image = note.getImage()
+            if note.image != nil{
+                image?.image = note.getImage()
+            }
+            else {
+                image?.image = nil
+            }
         }
-        else {
-            image?.image = nil
+        else{
+            titleLabel.isHidden = true
+            dateLabel.isHidden = true
+            textTextView.isHidden = true
+            image.isHidden = true
         }
         
     }
@@ -85,7 +98,13 @@ class NoteViewController: UIViewController {
                                                 [unowned self] action in
                                                 
                                                 self.delegate?.deleteNote(noteToDelete: self.note)
-                                                self.navigationController?.popToRootViewController(animated: true)
+                                                self.note = nil
+                                                
+                                                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                                                
+                                                if (appDelegate.splitViewController?.isCollapsed)!{
+                                                    self.navigationController?.popToRootViewController(animated: true)
+                                                }
                                                 
             }
             

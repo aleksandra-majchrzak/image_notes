@@ -13,15 +13,16 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var splitViewController: UISplitViewController?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let splitViewController = self.window!.rootViewController as! UISplitViewController
-        let leftNavController = splitViewController.viewControllers.first as! UINavigationController
+        splitViewController = (self.window!.rootViewController as! UISplitViewController)
+        let leftNavController = splitViewController!.viewControllers.first as! UINavigationController
         let masterViewController = leftNavController.topViewController as! MasterTableViewController
-        let detailViewController = splitViewController.viewControllers.last as! NoteViewController
+        let detailViewController = splitViewController!.viewControllers.last as! NoteViewController
         
         let firstNote = masterViewController.notes.first
         if firstNote != nil{
